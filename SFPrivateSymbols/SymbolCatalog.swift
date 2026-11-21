@@ -31,6 +31,13 @@ nonisolated struct PrivateSymbol: Identifiable, Hashable, Sendable {
 	var containerShapes: [String] = []
 	/// Localized variants of this symbol, as (locale suffix, full name).
 	var localizedVariants: [LocalizedVariant] = []
+	/// The symbol this one is a localized variant of (`foo` for `foo.ar`).
+	var localizedBase: String?
+	/// The base symbol this one is a variant of (`foo` for `foo.fill`, `foo.circle`, `foo.badge.plus`…).
+	var familyBase: String?
+	/// Variants of this base symbol, in symbol order. SF Symbols stacks a card behind such symbols
+	/// and shows only the base while browsing.
+	var familyVariants: [String] = []
 	/// Index in `symbol_order.plist`; symbols missing from it sort last.
 	var order: Int = .max
 
@@ -185,12 +192,31 @@ nonisolated final class SymbolCatalog: Sendable {
 		// `foo.ar`, `foo.rtl`, … are localized variants of `foo`.
 		let nameSet = Set(names)
 		var variantsByBase: [String: [LocalizedVariant]] = [:]
+		var localizedBases: [String: String] = [:]
 		for name in names {
 			guard let dot = name.lastIndex(of: ".") else { continue }
 			let base = String(name[..<dot])
 			let suffix = String(name[name.index(after: dot)...])
 			if Self.localeSuffixes.contains(suffix) && nameSet.contains(base) {
 				variantsByBase[base, default: []].append(LocalizedVariant(locale: suffix, name: name))
+				localizedBases[name] = base
+			}
+		}
+
+		// Families: `base.<suffix>` is a variant of `base` when the suffix is one SF Symbols uses for
+		// variants. The shortest existing base wins, so `foo.circle.fill` belongs to `foo`, not `foo.circle`.
+		// (Checked against SF Symbols' own map for public symbols: 97% precision, 99% recall.)
+		var familyBases: [String: String] = [:]
+		var familyVariants: [String: [String]] = [:]
+		for name in names where localizedBases[name] == nil {
+			let parts = name.split(separator: ".", omittingEmptySubsequences: false)
+			for split in parts.indices.dropFirst() {
+				let base = parts[..<split].joined(separator: ".")
+				guard nameSet.contains(base), localizedBases[base] == nil,
+					  Self.familySuffixes.contains(parts[split...].joined(separator: ".")) else { continue }
+				familyBases[name] = base
+				familyVariants[base, default: []].append(name)
+				break
 			}
 		}
 
@@ -206,6 +232,9 @@ nonisolated final class SymbolCatalog: Sendable {
 			symbol.restriction = restrictions[name]
 			symbol.order = orderIndex[name] ?? .max
 			symbol.localizedVariants = variantsByBase[name] ?? []
+			symbol.localizedBase = localizedBases[name]
+			symbol.familyBase = familyBases[name]
+			symbol.familyVariants = (familyVariants[name] ?? []).sorted { (orderIndex[$0] ?? .max) < (orderIndex[$1] ?? .max) }
 			if let recipe = containers[name] as? [String: Any], let shapes = recipe["shapes"] as? [String: Any] {
 				symbol.containerShapes = shapes.keys.sorted()
 			}

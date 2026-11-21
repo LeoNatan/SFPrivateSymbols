@@ -143,7 +143,7 @@ struct SymbolTile: View {
 	}
 
 	private var hasVariants: Bool {
-		symbol.fillVariant != nil || symbol.outlineVariant != nil || !symbol.localizedVariants.isEmpty
+		!symbol.familyVariants.isEmpty
 	}
 
 	/// Break names at dots so they wrap like in SF Symbols.

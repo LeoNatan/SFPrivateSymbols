@@ -90,9 +90,18 @@ final class AppModel {
 	private let symbolsByName: [String: PrivateSymbol]
 
 	var sidebarSelection: SidebarItem? = .category("all") {
-		didSet { selectedSymbolName = nil }
+		didSet {
+			selectedSymbolName = nil
+			variantsBase = nil
+		}
 	}
-	var searchText = ""
+	var searchText = "" {
+		didSet {
+			if !searchText.isEmpty { variantsBase = nil }
+		}
+	}
+	/// The base symbol whose variants are shown (View > Show Symbol Variants), or `nil` for all symbols.
+	var variantsBase: String?
 	var selectedSymbolName: String?
 	var viewMode: ViewMode = .grid
 	var style = SymbolStyle()
@@ -113,7 +122,8 @@ final class AppModel {
 	}
 
 	#if DEBUG
-	/// e.g. `-DebugSymbol apple.logo.shield.fill -DebugInspectorTab rendering -DebugViewMode list -DebugSearch airpods`
+	/// e.g. `-DebugSymbol apple.logo.shield.fill -DebugInspectorTab rendering -DebugViewMode list -DebugSearch airpods`,
+	/// `-DebugSymbol airdrop -DebugShowVariants YES`
 	private func applyDebugLaunchArguments() {
 		let defaults = UserDefaults.standard
 		if let category = defaults.string(forKey: "DebugCategory") {
@@ -134,6 +144,9 @@ final class AppModel {
 		if let symbol = defaults.string(forKey: "DebugSymbol") {
 			selectedSymbolName = symbol
 		}
+		if defaults.bool(forKey: "DebugShowVariants") {
+			showSymbolVariants()
+		}
 	}
 	#endif
 
@@ -145,13 +158,38 @@ final class AppModel {
 		selectedSymbolName.flatMap { symbolsByName[$0] }
 	}
 
+	/// The family base of the selection, when it has variants to show.
+	var selectionVariantsBase: String? {
+		guard let selected = selectedSymbol else { return nil }
+		let base = selected.familyBase ?? selected.name
+		return symbol(named: base)?.familyVariants.isEmpty == false ? base : nil
+	}
+
+	/// View > Show Symbol Variants (⌘O): show only the variants of the selected symbol's base.
+	func showSymbolVariants() {
+		guard let base = selectionVariantsBase else { return }
+		searchText = ""
+		variantsBase = base
+		selectedSymbolName = nil
+	}
+
+	/// View > Show All Symbols, or the back button: leave the variants view, keeping the base selected.
+	func showAllSymbols() {
+		guard let base = variantsBase else { return }
+		variantsBase = nil
+		selectedSymbolName = base
+	}
+
 	var title: String {
-		switch sidebarSelection {
-		case .category(let key):
-			return SymbolCatalog.label(forCategory: key)
-		case nil:
-			return "All"
+		if let variantsBase {
+			return variantsBase
 		}
+		let scope = switch sidebarSelection {
+		case .category(let key): SymbolCatalog.label(forCategory: key)
+		case nil: "All"
+		}
+		// SF Symbols titles search results "Search <category>".
+		return searchText.isEmpty ? scope : "Search \(scope)"
 	}
 
 	/// Symbols for the current sidebar item, before search is applied.
@@ -169,14 +207,18 @@ final class AppModel {
 		return result
 	}
 
-	/// The symbols currently displayed.
+	/// The symbols currently displayed. As in SF Symbols, browsing shows base symbols only (variants are
+	/// stacked behind them), search shows variants too, and localized variants only appear in the inspector.
 	var visibleSymbols: [PrivateSymbol] {
+		if let variantsBase {
+			return (symbol(named: variantsBase)?.familyVariants ?? []).compactMap { symbol(named: $0) }
+		}
 		let tokens = searchText
 			.lowercased()
 			.split(whereSeparator: { $0.isWhitespace })
 			.map(String.init)
-		let scope = scopeSymbols
-		guard !tokens.isEmpty else { return scope }
+		let scope = scopeSymbols.filter { $0.localizedBase == nil }
+		guard !tokens.isEmpty else { return scope.filter { $0.familyBase == nil } }
 
 		let matches = scope.filter { symbol in
 			tokens.allSatisfy { symbol.searchText.contains($0) }

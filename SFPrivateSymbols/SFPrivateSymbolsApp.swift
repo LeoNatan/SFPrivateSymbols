@@ -99,6 +99,19 @@ struct SymbolCommands: Commands {
 
 			Divider()
 
+			Button("Show Symbol Variants") {
+				model.showSymbolVariants()
+			}
+			.keyboardShortcut("o", modifiers: .command)
+			.disabled(model.selectionVariantsBase == nil)
+
+			Button("Show All Symbols") {
+				model.showAllSymbols()
+			}
+			.disabled(model.variantsBase == nil)
+
+			Divider()
+
 			Toggle("Show Obfuscated Names", isOn: Binding(get: { model.showsObfuscatedNames }, set: { model.showsObfuscatedNames = $0 }))
 
 			Divider()

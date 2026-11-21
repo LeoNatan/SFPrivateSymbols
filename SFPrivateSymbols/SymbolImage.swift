@@ -67,12 +67,14 @@ enum SymbolExport {
 		"Image(_internalSystemName: \"\(name)\")"
 	}
 
+	/// Written as Swift imports the private methods when a header declares them:
+	/// `+[NSImage imageWithPrivateSystemSymbolName:]` and `+[UIImage _systemImageNamed:]`.
 	static func appKitCode(_ name: String) -> String {
-		"NSImage.perform(NSSelectorFromString(\"imageWithPrivateSystemSymbolName:\"), with: \"\(name)\")?.takeUnretainedValue() as? NSImage"
+		"NSImage(privateSystemSymbolName: \"\(name)\")"
 	}
 
 	static func uiKitCode(_ name: String) -> String {
-		"UIImage.perform(NSSelectorFromString(\"_systemImageNamed:\"), with: \"\(name)\")?.takeUnretainedValue() as? UIImage"
+		"UIImage._systemImageNamed(\"\(name)\")"
 	}
 
 	static func copyString(_ string: String) {

@@ -17,7 +17,7 @@ struct ContentView: View {
 		} detail: {
 			DetailView()
 				.navigationTitle(model.title)
-				.navigationSubtitle(subtitle)
+				.navigationSubtitle(model.variantsBase == nil ? subtitle : "")
 		}
 		.searchable(text: $model.searchText, placement: .toolbar, prompt: "Search")
 		#if DEBUG
@@ -55,6 +55,17 @@ struct ContentView: View {
 				.inspectorColumnWidth(min: 280, ideal: 400, max: 480)
 		}
 		.toolbar {
+			if model.variantsBase != nil {
+				ToolbarItem(placement: .navigation) {
+					Button {
+						model.showAllSymbols()
+					} label: {
+						Label("Show All Symbols", systemImage: "chevron.left")
+					}
+					.help("Show All Symbols")
+				}
+			}
+
 			ToolbarItem(placement: .primaryAction) {
 				ToolbarPopUp(options: SymbolWeightOption.allCases, title: \.title, selection: $model.style.weight)
 					.help("Symbol Weight")
