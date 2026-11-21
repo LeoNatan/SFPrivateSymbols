@@ -119,15 +119,6 @@ struct SymbolTile: View {
 						.offset(y: -4 * scale)
 				}
 			}
-			.overlay(alignment: .topTrailing) {
-				if symbol.isNew {
-					Circle()
-						.fill(.blue)
-						.frame(width: 6, height: 6)
-						.padding(9 * scale)
-						.help("New")
-				}
-			}
 			.padding(.top, 8 * scale)
 
 			Text(displayName)

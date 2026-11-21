@@ -52,7 +52,7 @@ struct ContentView: View {
 		}
 		.inspector(isPresented: $model.showsInspector) {
 			InspectorView()
-				.inspectorColumnWidth(min: 280, ideal: 400, max: 480)
+				.inspectorColumnWidth(min: 400, ideal: 400, max: 480)
 		}
 		.toolbar {
 			if model.variantsBase != nil {
