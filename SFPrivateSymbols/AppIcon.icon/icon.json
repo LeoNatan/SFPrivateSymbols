@@ -1,0 +1,258 @@
+{
+  "fill": {
+    "linear-gradient": [
+      "gray:0.19200,1.00000",
+      "gray:0.07800,1.00000"
+    ],
+    "orientation": {
+      "start": {
+        "x": 0.5,
+        "y": 0
+      },
+      "stop": {
+        "x": 0.5,
+        "y": 1
+      }
+    }
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "9.a.front.copy.svg",
+          "name": "9.a.front.copy",
+          "glass": true,
+          "fill-specializations": [
+            {
+              "appearance": "tinted",
+              "value": {
+                "solid": "gray:1.00000,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "image-name": "12.star.front.svg",
+          "name": "12.star.front",
+          "glass": true,
+          "fill-specializations": [
+            {
+              "appearance": "tinted",
+              "value": {
+                "linear-gradient": [
+                  "gray:1.00000,1.00000",
+                  "gray:0.80000,1.00000"
+                ],
+                "orientation": {
+                  "start": {
+                    "x": 0.5,
+                    "y": 0
+                  },
+                  "stop": {
+                    "x": 0.5,
+                    "y": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "image-name": "4.heart.front.svg",
+          "name": "4.heart.front",
+          "glass": true,
+          "fill-specializations": [
+            {
+              "appearance": "tinted",
+              "value": {
+                "linear-gradient": [
+                  "gray:1.00000,1.00000",
+                  "gray:0.80000,1.00000"
+                ],
+                "orientation": {
+                  "start": {
+                    "x": 0.5,
+                    "y": 0
+                  },
+                  "stop": {
+                    "x": 0.5,
+                    "y": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.4
+      },
+      "specular": true,
+      "lighting": "individual",
+      "translucency": {
+        "enabled": false,
+        "value": 0.5
+      }
+    },
+    {
+      "layers": [
+        {
+          "image-name": "8.a.spec.2.svg",
+          "name": "8.a.spec.2",
+          "glass": true,
+          "blend-mode": "multiply"
+        },
+        {
+          "image-name": "7.a.spec.svg",
+          "name": "7.a.spec",
+          "glass": true,
+          "blend-mode": "multiply",
+          "fill-specializations": [
+            {
+              "appearance": "tinted",
+              "value": {
+                "solid": "gray:0.76000,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "image-name": "6.a.back.2.svg",
+          "name": "6.a.back.2",
+          "glass": true
+        },
+        {
+          "image-name": "5.a.back.1.svg",
+          "name": "5.a.back.1 tint",
+          "glass": true,
+          "fill": {
+            "solid": "display-p3:0.65254,0.43692,0.22130,0.78000"
+          }
+        },
+        {
+          "image-name": "5.a.back.1.svg",
+          "name": "5.a.back.1",
+          "glass": true
+        }
+      ],
+      "shadow": {
+        "kind": "layer-color",
+        "opacity": 0.32
+      },
+      "specular": true,
+      "lighting": "individual",
+      "translucency": {
+        "enabled": false,
+        "value": 0.5
+      }
+    },
+    {
+      "layers": [
+        {
+          "image-name": "11.star.back.2.copy.2.svg",
+          "name": "11.star.back.2.copy.2",
+          "glass": true,
+          "opacity-specializations": [
+            {
+              "appearance": "tinted",
+              "value": 0.85
+            }
+          ]
+        },
+        {
+          "image-name": "10.star.back.copy.3.svg",
+          "name": "10.star.back.copy.3",
+          "glass": true,
+          "opacity-specializations": [
+            {
+              "appearance": "tinted",
+              "value": 0.85
+            }
+          ]
+        }
+      ],
+      "shadow": {
+        "kind": "layer-color",
+        "opacity": 0.32
+      },
+      "specular": true,
+      "lighting": "individual",
+      "translucency": {
+        "enabled": false,
+        "value": 0.5
+      }
+    },
+    {
+      "layers": [
+        {
+          "image-name": "3.layer.29.svg",
+          "name": "3.layer.29",
+          "glass": true,
+          "fill-specializations": [
+            {
+              "appearance": "tinted",
+              "value": {
+                "linear-gradient": [
+                  "gray:0.72900,1.00000",
+                  "gray:0.46700,1.00000"
+                ],
+                "orientation": {
+                  "start": {
+                    "x": 0.273,
+                    "y": 0.13
+                  },
+                  "stop": {
+                    "x": 0.283,
+                    "y": 0.805
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "image-name": "2.heart.back.2.copy.svg",
+          "name": "2.heart.back.2.copy",
+          "glass": true,
+          "fill-specializations": [
+            {
+              "appearance": "tinted",
+              "value": {
+                "linear-gradient": [
+                  "gray:0.72900,1.00000",
+                  "gray:0.46700,1.00000"
+                ],
+                "orientation": {
+                  "start": {
+                    "x": 0.273,
+                    "y": 0.13
+                  },
+                  "stop": {
+                    "x": 0.283,
+                    "y": 0.805
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "shadow": {
+        "kind": "layer-color",
+        "opacity": 0.32
+      },
+      "specular": true,
+      "lighting": "individual",
+      "translucency": {
+        "enabled": false,
+        "value": 0.5
+      }
+    }
+  ],
+  "supported-platforms": {
+    "squares": [
+      "macOS"
+    ]
+  }
+}
