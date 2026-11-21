@@ -24,9 +24,12 @@ SKIP_INSTALL = NO
 Typical command-line build:
 
 ```sh
-xcodebuild -project SFPrivateSymbols.xcodeproj -scheme SFPrivateSymbols -configuration Debug \
-	-derivedDataPath build/DerivedData build
+xcodebuild -project SFPrivateSymbols.xcodeproj -scheme SFPrivateSymbols -configuration Debug build
 ```
+
+Don't pass `-derivedDataPath` (or set a custom build location): build in the default
+`~/Library/Developer/Xcode/DerivedData`. Léo has Spotlight ignore that folder; a build folder inside the repo
+gets indexed, and its copies of the app show up when searching for it.
 
 ## Project conventions
 
