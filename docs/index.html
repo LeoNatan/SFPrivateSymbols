@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" data-slop-level="3">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>SF Private Symbols — Browse the SF Symbols Apple keeps for itself</title>
+	<meta name="description" content="A free, open-source Mac app for browsing the 1,700+ private SF Symbols that ship with macOS. Looks and works like Apple's SF Symbols app." />
+	<meta name="color-scheme" content="dark" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&amp;family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="./dist/slopstrap.css" />
+	<script src="./dist/slopstrap.js" defer></script>
+	<style>
+		/* Screenshots are ~3200 px window captures with transparent shadows; scale them down. */
+		.sfps-shot {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+		.sfps-hero-shot {
+			max-width: 1100px;
+			margin: 3rem auto 0;
+		}
+		.sfps-cta-row {
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+		}
+		.sfps-ai-output {
+			min-height: 3rem;
+		}
+		.sfps-footer {
+			border-top: 1px solid rgba(148, 163, 184, 0.15);
+		}
+	</style>
+</head>
+<body class="slop-body slop-grid-bg">
+	<div class="slop-orb-layer" aria-hidden="true">
+		<div class="slop-orb slop-orb-purple"></div>
+		<div class="slop-orb slop-orb-cyan"></div>
+		<div class="slop-orb slop-orb-pink"></div>
+		<div class="slop-orb slop-orb-emerald"></div>
+	</div>
+
+	<div class="slop-content-layer">
+		<!-- NAVBAR -->
+		<header class="slop-navbar">
+			<div class="slop-container slop-navbar-inner">
+				<a class="slop-brand" href="./">
+					<span class="slop-brand-mark">✨</span> SF Private Symbols
+				</a>
+				<ul class="slop-nav-links">
+					<li><a href="#features">Features</a></li>
+					<li><a href="#showcase">Showcase</a></li>
+					<li><a href="#pricing">Pricing</a></li>
+					<li><a href="#install">Install</a></li>
+					<li><a href="https://github.com/LeoNatan/SFPrivateSymbols">GitHub</a></li>
+				</ul>
+				<span class="slop-status">
+					<span class="slop-dot slop-dot-green"></span> All 1,700+ Symbols Operational
+				</span>
+			</div>
+		</header>
+
+		<main>
+			<!-- HERO -->
+			<section class="slop-section slop-center">
+				<div class="slop-container">
+					<div class="slop-pill slop-pill-shimmer">
+						<span class="slop-dot slop-dot-green"></span> ✨ Now Available for macOS 26 — Free &amp; Open Source →
+					</div>
+
+					<h1 class="slop-h1 slop-mt-3">
+						<span class="slop-text-gradient">The SF Symbols Apple keeps</span>
+						<span class="slop-serif-emphasis slop-text-gradient-hot">strictly</span>
+						<span class="slop-text-gradient">for</span> <span class="slop-underline slop-underline-animated">itself</span>. ✨
+					</h1>
+
+					<p class="slop-lead slop-mt-3">
+						It’s not just a symbol browser — it’s a window into the 1,700+ private SF Symbols hiding in
+						<span class="slop-mono">CoreGlyphsPrivate.bundle</span>. AirPods, Apple Watch, Apple TV, accessibility features and more —
+						all in a Mac app that looks and works like SF Symbols.
+					</p>
+
+					<div class="slop-row sfps-cta-row slop-mt-4">
+						<a class="slop-btn slop-btn-primary slop-btn-lg" href="https://github.com/LeoNatan/SFPrivateSymbols">⚡ View on GitHub</a>
+						<a class="slop-btn slop-btn-ghost slop-btn-lg" href="#features">🚀 Explore Features</a>
+					</div>
+
+					<p class="slop-muted slop-mt-2">
+						<span class="slop-badge slop-badge-emerald">macOS 26+</span>
+						<span class="slop-badge slop-badge-cyan">100% Free</span>
+						<span class="slop-badge slop-badge-ai">✨ Open Source</span>
+					</p>
+
+					<div class="sfps-hero-shot">
+						<img class="sfps-shot" src="./images/screenshot-dark.png" width="3224" height="2024" alt="SF Private Symbols in dark mode, showing a grid of multicolor private symbols with the inspector open" />
+					</div>
+				</div>
+			</section>
+
+			<!-- LOGO MARQUEE -->
+			<section class="slop-section-sm slop-center">
+				<div class="slop-container">
+					<p class="slop-muted slop-mb-2">Trusted by teams who have absolutely never heard of us</p>
+					<div data-slop-marquee></div>
+				</div>
+			</section>
+
+			<!-- STATS -->
+			<section class="slop-section-sm">
+				<div class="slop-container slop-grid-4">
+					<div class="slop-card slop-stat-card slop-border-l-purple">
+						<div class="slop-stat-value" data-slop-count="1700+">1,700+</div>
+						<div class="slop-stat-label">Private symbols Apple didn’t list for you</div>
+						<span class="slop-stat-delta">▲ +∞% vs. what you could see before</span>
+					</div>
+					<div class="slop-card slop-stat-card slop-border-l-cyan">
+						<div class="slop-stat-value" data-slop-count="$0">$0</div>
+						<div class="slop-stat-label">Price — forever</div>
+						<span class="slop-stat-delta">▼ −100% investor returns</span>
+					</div>
+					<div class="slop-card slop-stat-card slop-border-l-emerald">
+						<div class="slop-stat-value" data-slop-count="99.99%">99.99%</div>
+						<div class="slop-stat-label">Unverified vibe uptime</div>
+						<span class="slop-stat-delta">▲ +420% MoM (we made this up)</span>
+					</div>
+					<div class="slop-card slop-stat-card slop-border-l-amber">
+						<div class="slop-stat-value" data-slop-count="10x">10x</div>
+						<div class="slop-stat-label">Faster than squinting at a system bundle</div>
+						<span class="slop-stat-delta">▲ Source: trust us</span>
+					</div>
+				</div>
+			</section>
+
+			<!-- FEATURES BENTO -->
+			<section class="slop-section" id="features">
+				<div class="slop-container">
+					<div class="slop-center slop-mb-4">
+						<div class="slop-pill">
+							<span class="slop-dot slop-dot-purple"></span> ⚡ Features
+						</div>
+						<h2 class="slop-h2 slop-mt-2">
+							Everything SF Symbols does — for the symbols it <span class="slop-serif-emphasis slop-text-gradient-hot">won’t</span> show.
+						</h2>
+						<p class="slop-lead">
+							It’s not just a grid of glyphs — it’s a <span class="slop-underline slop-underline-squiggle slop-underline-cyan">fully</span> featured symbol browser, inspector and exporter.
+						</p>
+					</div>
+
+					<div class="slop-bento">
+						<div class="slop-card slop-bento-7 slop-border-l-purple">
+							<div class="slop-icon-box">🗂️</div>
+							<h3 class="slop-h3 slop-mt-2">Browse</h3>
+							<p class="slop-muted">
+								Every private symbol in grid, list and gallery views — organized into SF Symbols’ categories, with search by name, alias and search term.
+							</p>
+							<div class="slop-card slop-card-nested slop-mt-3">
+								<p class="slop-mono slop-muted">⌘F → “airpods” → instant, frictionless, delightful results — the way search was always meant to feel.</p>
+							</div>
+						</div>
+						<div class="slop-card slop-bento-5 slop-border-l-cyan">
+							<div class="slop-icon-box slop-icon-cyan">🔍</div>
+							<h3 class="slop-h3 slop-mt-2">Inspect</h3>
+							<p class="slop-muted">
+								The SF Symbols version and OS releases that introduced each symbol, its aliases, categories, search terms, fill and localized variants, and usage restrictions.
+							</p>
+						</div>
+						<div class="slop-card slop-bento-5 slop-border-l-pink">
+							<div class="slop-icon-box slop-icon-pink">🎨</div>
+							<h3 class="slop-h3 slop-mt-2">Preview</h3>
+							<p class="slop-muted">
+								Any weight and scale in monochrome, hierarchical, palette or multicolor — with gradients, variable values, and custom colors and backgrounds.
+							</p>
+						</div>
+						<div class="slop-card slop-card-beam slop-bento-7 slop-border-l-rainbow">
+							<div class="slop-icon-box slop-icon-amber">🌀</div>
+							<h3 class="slop-h3 slop-mt-2">Animate <span class="slop-badge slop-badge-popular">✨ MOST VIBES</span></h3>
+							<p class="slop-muted">
+								Every SF Symbols effect — bounce, pulse, variable color, scale, wiggle, rotate, breathe, replace, draw on and off, and more. It’s not just motion — it’s motion that sparks joy.
+							</p>
+						</div>
+						<div class="slop-card slop-bento-6 slop-border-l-emerald">
+							<div class="slop-icon-box slop-icon-emerald">📋</div>
+							<h3 class="slop-h3 slop-mt-2">Copy</h3>
+							<p class="slop-muted">
+								A symbol as SVG or PNG, its name, or ready-to-use SwiftUI, AppKit and UIKit code — straight to your clipboard.
+							</p>
+						</div>
+						<div class="slop-card slop-bento-6 slop-border-l-indigo">
+							<div class="slop-icon-box slop-icon-indigo">📦</div>
+							<h3 class="slop-h3 slop-mt-2">Export</h3>
+							<p class="slop-muted">
+								Symbol templates for designers, or for Xcode asset catalogs — seamlessly bridging design and engineering.
+							</p>
+						</div>
+					</div>
+
+					<div class="slop-alert slop-border-l-purple slop-mt-4">
+						<span class="slop-dot slop-dot-purple"></span>
+						<div><strong>✨ AI Insight:</strong> SF Symbols, private ones included, are subject to Apple’s license terms — listed on <a href="https://developer.apple.com/sf-symbols/">Apple’s SF Symbols page</a>. This is the one sentence on this page a lawyer actually read.</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- SHOWCASE -->
+			<section class="slop-section" id="showcase">
+				<div class="slop-container">
+					<div class="slop-center slop-mb-4">
+						<div class="slop-pill">
+							<span class="slop-dot slop-dot-cyan"></span> 🌗 Light &amp; Dark
+						</div>
+						<h2 class="slop-h2 slop-mt-2">
+							<span class="slop-text-gradient">Looks like SF Symbols.</span> Works like <span class="slop-serif-emphasis slop-text-gradient-hot">SF Symbols</span>.
+						</h2>
+						<p class="slop-lead">Because a native Mac app should feel native — not just in dark mode, but in light mode too.</p>
+					</div>
+
+					<div class="slop-grid-2">
+						<div class="slop-card slop-border-l-gradient">
+							<img class="sfps-shot" src="./images/screenshot.png" width="3224" height="2024" alt="SF Private Symbols in light mode, showing multicolor private symbols with the inspector open on the Activity rings symbol" />
+						</div>
+						<div class="slop-card slop-border-l-rose">
+							<h3 class="slop-h3">Why does this exist?</h3>
+							<p class="slop-muted slop-mt-2">
+								Apple’s SF Symbols app lists the thousands of public symbols. But macOS also ships over 1,700 private ones — used throughout Apple’s own apps — in a system bundle that no app shows you.
+							</p>
+							<p class="slop-muted slop-mt-2">
+								SF Private Symbols does. Here’s the thing — that’s it. That’s the pitch.
+							</p>
+							<div class="slop-card slop-card-nested slop-mt-3">
+								<p class="slop-muted slop-mb-1">Slop compliance</p>
+								<div class="slop-progress">
+									<div class="slop-progress-bar" style="width:100%"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="slop-mt-4" data-slop-prose="devices" data-slop-paragraphs="1"></div>
+				</div>
+			</section>
+
+			<!-- TESTIMONIALS -->
+			<section class="slop-section">
+				<div class="slop-container">
+					<div class="slop-center slop-mb-4">
+						<div class="slop-pill">
+							<span class="slop-dot slop-dot-amber"></span> ⭐ Social Proof (Unverified)
+						</div>
+						<h2 class="slop-h2 slop-mt-2">
+							Loved by people who <span class="slop-serif-emphasis slop-text-gradient-hot">definitely</span> exist.
+						</h2>
+						<p class="slop-muted">Testimonials auto-generated by the design framework. None of these people have used the app — or, for that matter, been born.</p>
+					</div>
+					<div data-slop-testimonials="3"></div>
+				</div>
+			</section>
+
+			<!-- PRICING -->
+			<section class="slop-section" id="pricing">
+				<div class="slop-container">
+					<div class="slop-center slop-mb-4">
+						<div class="slop-pill">
+							<span class="slop-dot slop-dot-pink"></span> 💳 Pricing
+						</div>
+						<h2 class="slop-h2 slop-mt-2">
+							<span class="slop-text-gradient">Simple,</span> <span class="slop-serif-emphasis slop-text-gradient-hot">transparent</span> <span class="slop-text-gradient">pricing.</span>
+						</h2>
+						<div class="slop-row slop-row-center slop-mt-3">
+							<span class="slop-muted">Monthly</span>
+							<button class="slop-switch" role="switch" aria-checked="false" aria-label="Toggle yearly billing" data-slop-billing-toggle>
+								<span class="slop-switch-thumb"></span>
+							</button>
+							<span class="slop-muted">Yearly <span class="slop-badge slop-badge-emerald">Save 0%</span></span>
+						</div>
+					</div>
+
+					<div class="slop-grid-3">
+						<div class="slop-card slop-pricing-card slop-border-l-cyan">
+							<h3 class="slop-h3">Hobbyist</h3>
+							<div class="slop-price" data-price-monthly="$0" data-price-yearly="$0">$0 <span>/mo</span></div>
+							<ul class="slop-feature-list">
+								<li>✅ All 1,700+ private symbols</li>
+								<li>✅ Grid, list &amp; gallery views</li>
+								<li>✅ Every rendering mode</li>
+							</ul>
+							<a class="slop-btn slop-btn-ghost slop-w-full" href="https://github.com/LeoNatan/SFPrivateSymbols">Get the source</a>
+						</div>
+						<div class="slop-card slop-card-beam slop-pricing-card slop-pricing-popular">
+							<span class="slop-badge slop-badge-popular slop-pricing-popular-tag">✨ MOST POPULAR</span>
+							<h3 class="slop-h3">Pro</h3>
+							<div class="slop-price slop-text-gradient" data-price-monthly="$0" data-price-yearly="$0">$0 <span>/mo</span></div>
+							<ul class="slop-feature-list">
+								<li>✅ Everything in Hobbyist</li>
+								<li>✅ Every SF Symbols animation</li>
+								<li>✅ Copy as SVG, PNG, SwiftUI, AppKit &amp; UIKit</li>
+								<li>✅ The same app, but you feel more professional</li>
+							</ul>
+							<a class="slop-btn slop-btn-primary slop-w-full" href="https://github.com/LeoNatan/SFPrivateSymbols">⚡ Get the source</a>
+						</div>
+						<div class="slop-card slop-pricing-card slop-border-l-pink">
+							<h3 class="slop-h3">Enterprise</h3>
+							<div class="slop-price" data-price-monthly="$0" data-price-yearly="$0">$0 <span>/mo</span></div>
+							<ul class="slop-feature-list">
+								<li>✅ Everything in Pro</li>
+								<li>✅ Export templates for designers &amp; Xcode</li>
+								<li>✅ A “Contact Sales” button that opens GitHub</li>
+							</ul>
+							<a class="slop-btn slop-btn-rainbow slop-w-full" href="https://github.com/LeoNatan/SFPrivateSymbols">Contact Sales</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- INSTALL -->
+			<section class="slop-section" id="install">
+				<div class="slop-container">
+					<div class="slop-center slop-mb-4">
+						<div class="slop-pill">
+							<span class="slop-dot slop-dot-green"></span> 🛠️ Get Started
+						</div>
+						<h2 class="slop-h2 slop-mt-2">
+							Up and running in <span class="slop-serif-emphasis slop-text-gradient-hot">one</span> <span class="slop-underline slop-underline-double slop-underline-emerald">Xcode</span> build.
+						</h2>
+						<p class="slop-lead">Requires macOS 26 or later. Open the project in Xcode and build — the app is installed into <span class="slop-mono">/Applications/SF Private Symbols.app</span>.</p>
+					</div>
+
+					<div class="slop-grid-2">
+						<div class="slop-terminal slop-card-beam">
+							<div class="slop-terminal-header">
+								<span class="slop-traffic-lights"><span></span><span></span><span></span></span>
+								<span>install.sh</span>
+								<button class="slop-btn slop-btn-ghost slop-btn-sm" data-slop-copy="#cmd">Copy</button>
+							</div>
+							<pre class="slop-code" id="cmd">$ git clone https://github.com/LeoNatan/SFPrivateSymbols.git
+$ cd SFPrivateSymbols
+$ open SFPrivateSymbols.xcodeproj
+# ⌘B — and that’s it. No npm. No Docker. No Series A.</pre>
+						</div>
+
+						<div class="slop-card slop-border-l-amber">
+							<h3 class="slop-h3 slop-sparkle">Ask AI which private symbol you need</h3>
+							<p class="slop-muted slop-mt-1">Powered by zero models. The app’s actual search is far more useful.</p>
+							<form class="slop-ai-bar slop-mt-3" data-slop-prompt-form="#ai-output">
+								<span>✨</span>
+								<input type="text" placeholder="e.g. AirPods case battery..." aria-label="Prompt" />
+								<button class="slop-btn slop-btn-primary slop-btn-sm" type="submit">⚡ Run</button>
+							</form>
+							<p class="slop-muted slop-mt-2 sfps-ai-output" id="ai-output"></p>
+						</div>
+					</div>
+
+					<div class="slop-row sfps-cta-row slop-mt-4">
+						<a class="slop-btn slop-btn-primary slop-btn-lg" href="https://github.com/LeoNatan/SFPrivateSymbols">⚡ Get the source on GitHub</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- SLOP LEVEL -->
+			<section class="slop-section-sm slop-center">
+				<div class="slop-container">
+					<p class="slop-muted slop-mb-2">Not enough? Dial it up.</p>
+					<div class="slop-tabs" role="group" aria-label="Slop intensity">
+						<button class="slop-tab" type="button" data-sfps-level="1">1 · Subtle YC</button>
+						<button class="slop-tab" type="button" data-sfps-level="2">2 · Cursor One-Shot</button>
+						<button class="slop-tab is-active" type="button" data-sfps-level="3">3 · Peak Vibecoded</button>
+						<button class="slop-tab" type="button" data-sfps-level="4">4 · Critical Overdrive</button>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- FOOTER -->
+		<footer class="slop-section-sm sfps-footer">
+			<div class="slop-container slop-row slop-row-between">
+				<span class="slop-muted">
+					<span class="slop-dot slop-dot-rainbow"></span> SF Private Symbols — free and open source. Not affiliated with Apple.
+				</span>
+				<a class="slop-muted" href="https://github.com/LeoNatan/SFPrivateSymbols">GitHub →</a>
+			</div>
+		</footer>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('[data-sfps-level]').forEach(function (button) {
+				button.addEventListener('click', function () {
+					window.Slopstrap.setLevel(button.getAttribute('data-sfps-level'));
+					document.querySelectorAll('[data-sfps-level]').forEach(function (other) {
+						other.classList.toggle('is-active', other === button);
+					});
+				});
+			});
+		});
+	</script>
+</body>
+</html>
